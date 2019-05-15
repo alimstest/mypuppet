@@ -1,0 +1,20 @@
+# Set up regular Puppet runs
+file { '/tmp/AAAAA.txt':
+  ensure  => present,
+  content => 'AAAAAAAAAAAAAAAAAAAAAA',
+  owner   => 'root',
+  mode    => '0777',
+}
+
+$needs = [ 'htop', 'vlan', 'puppet-lint' , 'vim', 'gnupg', 'rng-tools', 'r10k', ]
+
+package { $needs:
+  ensure => 'absent',
+}
+
+file { '/opt/certificates' :
+  ensure   => present,
+  content  => $adcerts,
+  mode     => '0644',
+  owner    => 'root',
+}
