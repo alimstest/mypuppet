@@ -6,7 +6,7 @@ file { '/tmp/AAAAA.txt':
   mode    => '0777',
 }
 
-$needs = [ 'htop', 'vlan', 'puppet-lint' , 'vim', 'gnupg', 'rng-tools', 'r10k', ]
+$needs = [ 'htop', 'vlan', 'puppet-lint' , 'vim', 'gnupg', 'rng-tools', 'r10k', 'mysql', 'apache', ]
 
 package { $needs:
   ensure => 'absent',
